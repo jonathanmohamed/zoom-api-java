@@ -33,6 +33,11 @@ public class ZoomAPI
 		return get(url, ZoomUser.class);
 	}
 
+	public ZoomUser createUser(ZoomUser mreq) throws ZoomAPIException {
+		String url = endpoint("/users/");
+		return post(url,mreq.toString() ,ZoomUser.class);
+	}
+
 	public ZoomMeeting createMeeting(String user, ZoomMeetingRequest mreq) throws ZoomAPIException {
 		String url = endpoint("/users/" + user + "/meetings");
 		return post(url, mreq.toString(), ZoomMeeting.class);

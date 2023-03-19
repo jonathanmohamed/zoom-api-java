@@ -36,4 +36,21 @@ public class ZoomUser extends AsJsonString {
 	public String job_title;
 	public String company;
 	public String location;
+	public String action;
+
+	public UserInformation user_info;
+	public static class UserInformation {
+		public Integer type;
+		public String email;
+	}
+
+	public static ZoomUser requestDefaults(String action,int type, String email){
+		ZoomUser zu = new ZoomUser();
+		zu.action = action;
+		//add user info array
+		zu.user_info = new UserInformation();
+		zu.user_info.type=type;
+		zu.user_info.email=email;
+		return zu;
+	}
 }
